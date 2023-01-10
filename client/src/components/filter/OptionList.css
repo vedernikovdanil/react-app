@@ -1,0 +1,8 @@
+.filter-list-group.list-group {
+  --maxShowCount: 7;
+  max-height: calc(42px * var(--maxShowCount)) !important;
+}
+.filter-list-group.list-group .form-check {
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+}

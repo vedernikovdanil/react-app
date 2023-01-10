@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    command: sh -c "npm start"
+    volumes:
+      - ./client/src:/usr/src/app/src
+    environment:
+      - NODE_ENV=development
+
+  server:
+    command: sh -c "npm run dev"
+    volumes:
+      - ./server/src:/usr/src/app/src

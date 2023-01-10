@@ -1,0 +1,10 @@
+.filter-tab .checked {
+  --bs-bg-opacity: 0.25;
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}
+.filter-tab .checked.active {
+  --bs-bg-opacity: 0.75;
+}
