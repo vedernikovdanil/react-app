@@ -13,11 +13,3 @@
   color: var(--bs-accordion-btn-color) !important;
   background-color: var(--bs-accordion-btn-bg) !important;
 }
-html.dark .filter-accordion .checked .accordion-button {
-  color: #879cb2 !important;
-  background-color: #1c2d40 !important;
-}
-html.dark .filter-accordion .accordion-button {
-  color: #e1e1e1 !important;
-  background-color: #222 !important;
-}

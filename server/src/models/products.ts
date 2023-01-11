@@ -55,6 +55,6 @@ export interface ICategory extends RowDataPacket {
 }
 
 export interface ICompany extends RowDataPacket {
-  companyId: string;
+  companyId: number;
   name: string;
 }

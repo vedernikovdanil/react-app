@@ -1,5 +1,5 @@
 import { IProductReview } from "../../models/ProductReview";
-import Stars from "../elements/Stars";
+import Stars from "../Stars";
 
 function ProductReivew(props: IProductReview) {
   return (

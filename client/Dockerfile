@@ -1,8 +1,14 @@
-FROM node:19-alpine
+FROM node:19-alpine as base
 
 WORKDIR /usr/src/app
 COPY ./package*.json .
+
 RUN npm install
 COPY . .
+
+
+
+FROM base as production
+
 RUN npm run build
 RUN npm install -g serve

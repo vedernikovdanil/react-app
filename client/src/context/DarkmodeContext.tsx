@@ -66,7 +66,8 @@ export function DarkmodeProvider(props: { children: JSX.Element }) {
     if (!watchMedia) {
       updateStorage();
     }
-    document.querySelector("html")!.classList.toggle("dark", darkmode);
+    const theme = darkmode ? "dark" : "light";
+    document.querySelector("html")!.setAttribute("data-bs-theme", theme);
     // eslint-disable-next-line
   }, [darkmode]);
 

@@ -1,4 +1,7 @@
 import React from "react";
+import _ from "lodash";
+
+type TopBottomTuple = [top: number, bottom: number];
 
 class StickyEdges {
   #bufferScroll = 0;
@@ -6,7 +9,7 @@ class StickyEdges {
 
   constructor(
     public $el: HTMLElement,
-    public offset: [top: number, bottom: number],
+    public offset: TopBottomTuple,
     public canCompute = () => true
   ) {}
 
@@ -61,10 +64,11 @@ class StickyEdges {
     }
     const direction = this.#lastDirection as keyof typeof this.getScrollOptions;
     const dist = this.getScrollOptions()[direction];
-    const position = -(dist - delta);
-    if (position >= 0) {
-      this.$el.style.transform = `translateY(${position}px)`;
-    }
+
+    const margins = this.getOffsets();
+    const position = _.clamp(-(dist - delta), 0, margins[1]);
+
+    this.$el.style.transform = `translateY(${position}px)`;
     this.#lastDirection = "";
     // console.log(`unbind ${this.lastDirection}`);
   }
@@ -79,13 +83,23 @@ class StickyEdges {
       transform: "translateY(0)",
     };
   }
+
+  private getOffsets(): TopBottomTuple {
+    const [$p, $e] = [this.$el.parentElement, this.$el];
+    if (!$p) {
+      throw new Error("element must be in parent element");
+    }
+    const offsetBottom =
+      $p.offsetHeight + $p.offsetTop - ($e.offsetHeight + $e.offsetTop);
+    return [$e.offsetTop, offsetBottom];
+  }
 }
 
 type ElemRef = React.MutableRefObject<HTMLElement | null>;
 
 function useStickyEdges(
   ref: ElemRef,
-  offset: [top: number, bottom: number],
+  offset: TopBottomTuple,
   canCompute = () => true
 ) {
   React.useEffect(() => {

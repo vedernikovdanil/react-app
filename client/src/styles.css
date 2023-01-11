@@ -1,3 +1,9 @@
+#root-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
+
 .card,
 .accordion,
 .popover {
@@ -26,6 +32,10 @@ html:not(.dark) #darkmode-btn {
   width: 40px;
   height: 40px;
   padding: 0;
+}
+#darkmode-btn,
+#darkmode-btn ~ ::after {
+  color: var(--bs-body-color);
 }
 
 .products-carousel {
@@ -58,10 +68,6 @@ html:not(.dark) #darkmode-btn {
   background: rgba(220, 220, 220, 0.75) !important;
   backdrop-filter: blur(10px);
 }
-html.dark #navbar {
+html[data-bs-theme="dark"] #navbar {
   background: rgba(25, 25, 25, 0.75) !important;
-}
-
-html.dark .offcanvas-lg {
-  background-color: #222;
 }

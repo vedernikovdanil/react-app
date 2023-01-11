@@ -21,7 +21,7 @@ function ProductsPage() {
   const { products, filters, page, limit, total, countOfPages, url, category } =
     useLoaderData() as Awaited<ReturnType<typeof loader>>;
   const navigation = useNavigation();
-  const [gridView, setGridView] = React.useState(true);
+  const [gridView, setGridView] = React.useState(false);
   const [showModal, setShowModal] = React.useState(false);
   const proxyFilters = useProxyCollection(filters);
 

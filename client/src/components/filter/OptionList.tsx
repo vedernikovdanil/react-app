@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { FitlerContext } from "../../context/FilterContext";
 import { BP_UP } from "../../configuration";
-import Count from "../elements/Count";
+import Count from "../Count";
 
 function OptionList(props: {
   filter: FilterResult;

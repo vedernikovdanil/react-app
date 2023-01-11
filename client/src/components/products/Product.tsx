@@ -8,8 +8,8 @@ import { IProduct } from "../../models/Product";
 import { AppContext } from "../../context/AppContext";
 import { getImage } from "../../service/products";
 import priceFormat from "../../tools/priceFormat";
-import Stars from "../elements/Stars";
-import Count from "../elements/Count";
+import Stars from "../Stars";
+import Count from "../Count";
 
 export type ProductVariants = "cart" | "page";
 

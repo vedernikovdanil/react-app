@@ -1,4 +1,4 @@
-import Count from "./elements/Count";
+import Count from "./Count";
 
 function PageHeader(props: {
   page: number;

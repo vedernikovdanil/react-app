@@ -12,8 +12,8 @@ export default class ProductFilters {
       new Option("No in Stock", "noinstock", (item) => !item.stock),
     ];
     const compOptions = companies.map((company) => {
-      const predicate = (item: IProduct) => item.company == company.name;
-      return new Option(company.name, `${company.name}`, predicate);
+      const predicate = (item: IProduct) => item.companyId == company.companyId;
+      return new Option(company.name, `${company.companyId}`, predicate);
     });
     const rateOptions = _.range(1, 5 + 1).map((i) => {
       const predicate = (item: IProduct) => Math.round(item.rate) === i;

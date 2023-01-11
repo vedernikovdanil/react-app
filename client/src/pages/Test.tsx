@@ -61,20 +61,26 @@ function Test() {
   }
 
   return (
-    <div
-      style={{
-        width: "100px",
-        height: "100px",
-        background: light ? "lightyellow" : "grey",
-        color: light ? "black" : "white",
-        fontSize: "2.5em",
-        cursor: "pointer",
-      }}
-      onClick={fetchLight}
-      className="mx-auto d-flex align-items-center justify-content-center rounded"
-    >
-      <i className={`bi bi-lightbulb${light ? "-fill" : ""}`} />
-    </div>
+    <>
+      <button
+        style={{
+          width: "100px",
+          height: "100px",
+          background: light ? "lightyellow" : "grey",
+          color: light ? "black" : "white",
+          fontSize: "2.5em",
+        }}
+        onClick={fetchLight}
+        className="mx-auto d-flex align-items-center justify-content-center rounded"
+      >
+        <i className={`bi bi-lightbulb${light ? "-fill" : ""}`} />
+      </button>
+      <br />
+      <p>
+        This page subscribes on change state from the actions of other users and
+        send changed state to subscribers.
+      </p>
+    </>
   );
 }
 

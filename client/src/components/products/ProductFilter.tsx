@@ -109,7 +109,7 @@ function FilterTemplate(props: {
         value={searchQuery}
         onChange={(event) => setSearchQuery(event.target.value)}
         className="mb-2 mb-sm-3 shadow-sm"
-        placeholder="Search product"
+        placeholder="Search product (not working)"
       />
       {props.children}
       <Card>
