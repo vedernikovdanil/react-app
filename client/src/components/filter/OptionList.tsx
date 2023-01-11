@@ -47,7 +47,8 @@ function OptionList(props: {
 
   function blurInput(event: React.MouseEvent<HTMLInputElement, MouseEvent>) {
     const target = event.target as HTMLInputElement;
-    if (!target.checked || props.filter.pastValues.includes(target.value)) {
+    const hasChecked = props.filter.pastValues.includes(target.value);
+    if ((!hasChecked && !target.checked) || (hasChecked && target.checked)) {
       // event.preventDefault();
       target.blur();
     }

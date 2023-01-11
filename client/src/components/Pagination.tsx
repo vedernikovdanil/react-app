@@ -10,13 +10,18 @@ function PaginationComponent(props: {
   countOfPages: number;
   countOfShow: number;
 }) {
+  function getSafePage(value: number) {
+    return _.clamp(value, 1, props.countOfPages);
+  }
+
   const items = React.useMemo(() => {
     const [page, count] = [props.page, props.countOfPages];
     const half = Math.floor(props.countOfShow / 2);
-    let min = _.clamp(page - half, 1, count);
-    let max = _.clamp(page + half, 1, count);
-    min = page + half > max ? max - props.countOfShow + 1 : min;
-    max = page - half < min ? props.countOfShow : max;
+    let min = getSafePage(page - half);
+    let max = getSafePage(page + half);
+    min = getSafePage(page + half > max ? max - props.countOfShow + 1 : min);
+    max = getSafePage(page - half < min ? props.countOfShow : max);
+
     return (
       <>
         <Page page={1} active={page === 1} as={Pagination.First} />
